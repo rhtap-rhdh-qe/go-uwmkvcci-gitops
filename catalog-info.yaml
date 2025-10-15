@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-uwmkvcci-gitops
+  description: This is GitOps manifest for go-uwmkvcci   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-uwmkvcci
+    backstage.io/kubernetes-id: go-uwmkvcci 
+    backstage.io/techdocs-ref: dir:. 
+    jenkins.io/job-full-name: go-uwmkvcci-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-uwmkvcci
